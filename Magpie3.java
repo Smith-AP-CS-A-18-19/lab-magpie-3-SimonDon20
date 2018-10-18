@@ -39,11 +39,24 @@ public class Magpie3 {
 				   || findKeyword(statement, "brother") >= 0)
 		{
 			response = "Tell me more about your family.";
-		} else {
+		} else if (findKeyword(statement, "dog") >= 0
+						|| findKeyword(statement, "cat") >= 0)
+		{
+			response = "Tell me more about your pets.";
+		} else if (findKeyword(statement, "Mr.") >= 0
+						|| findKeyword(statement, "Mrs.") >= 0
+						|| findKeyword(statement, "Ms.") >= 0)
+		{
+			response = "They sound like a good teacher";
+		} else if (findKeyword(statement, statement.trim()) > 1)
+		{
+			response = "Say something, please.";
+		}	else {
 			response = getRandomResponse();
 		}
 		return response;
 	}
+
 
 	/**
 	 * Search for one word in phrase. The search is not case
@@ -142,6 +155,12 @@ public class Magpie3 {
 			response = "Do you really think so?";
 		} else if (whichResponse == 3) {
 			response = "You don't say.";
+		} else if (whichResponse == 4)
+		{
+			response = "Input invalid. Please try again.";
+		} else if (whichResponse == 5)
+		{
+			response = "Should I be concerned?";
 		}
 
 		return response;
